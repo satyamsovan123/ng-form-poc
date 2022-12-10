@@ -1,0 +1,659 @@
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#flush-collapseOne"
+        aria-expanded="false"
+        aria-controls="flush-collapseOne"
+      >
+        Form1
+      </button>
+    </h2>
+    <div
+      id="flush-collapseOne"
+      class="accordion-collapse collapse"
+      aria-labelledby="flush-headingOne"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <form [formGroup]="form1">
+        <div class="row">
+          <div class="col-3 mb-3">
+            <label class="form-label">Name</label>
+            <input formControlName="name" type="text" class="form-control" />
+            <div
+              *ngIf="
+                form1.controls['name'].invalid &&
+                (form1.controls['name'].dirty || form1.controls['name'].touched)
+              "
+              class="alert"
+            >
+              <div *ngIf="form1.controls['name'].errors">
+                <small *ngIf="form1.controls['name'].errors?.['required']">
+                  This is a required field and it cannot be empty.
+                </small>
+                <small
+                  *ngIf="form1.controls['name'].errors?.['isAlphaNumeric']"
+                >
+                  This field should only contain alphabets and numbers.
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 mb-3">
+            <label class="form-label">State</label>
+            <input formControlName="state" type="text" class="form-control" />
+            <div
+            *ngIf="
+              form1.controls['state'].invalid &&
+              (form1.controls['state'].dirty || form1.controls['state'].touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="form1.controls['state'].errors">
+              <small *ngIf="form1.controls['state'].errors?.['required']">
+                This is a required field and it cannot be empty.
+              </small>
+              <small
+                *ngIf="form1.controls['state'].errors?.['isAlphaNumeric']"
+              >
+                This field should only contain alphabets and numbers.
+              </small>
+            </div>
+          </div>
+          </div>
+          <div class="col-2 mb-3">
+            <label class="form-label">DL Number</label>
+            <input
+              formControlName="dlNumber"
+              type="text"
+              class="form-control"
+            />
+            <div
+            *ngIf="
+              form1.controls['dlNumber'].invalid &&
+              (form1.controls['dlNumber'].dirty || form1.controls['dlNumber'].touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="form1.controls['dlNumber'].errors">
+              <small *ngIf="form1.controls['dlNumber'].errors?.['required']">
+                This is a required field and it cannot be empty.
+              </small>
+              <small
+                *ngIf="form1.controls['dlNumber'].errors?.['isAlphaNumeric']"
+              >
+                This field should only contain alphabets and numbers.
+              </small>
+              <small
+              *ngIf="form1.controls['dlNumber'].errors?.['valueIsOfLength7']"
+            >
+              This field should only 7 charecters.
+            </small>
+            </div>
+          </div>
+          </div>
+          <div class="col-2 mb-3">
+            <label class="form-label">Zipcode</label>
+            <input formControlName="zipCode" type="text" class="form-control" />
+            <div
+            *ngIf="
+              form1.controls['zipCode'].invalid &&
+              (form1.controls['zipCode'].dirty || form1.controls['zipCode'].touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="form1.controls['zipCode'].errors">
+              <small *ngIf="form1.controls['zipCode'].errors?.['required']">
+                This is a required field and it cannot be empty.
+              </small>
+              <small
+                *ngIf="form1.controls['zipCode'].errors?.['isAlphaNumeric']"
+              >
+                This field should only contain alphabets and numbers.
+              </small>
+            </div>
+          </div>
+          </div>
+        </div>
+      </form>
+      <br />
+      {{ form1.value | json }}
+      {{ form1.status | json }}
+    </div>
+  </div>
+</div>
+
+<!-- <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#flush-collapseTwo"
+        aria-expanded="false"
+        aria-controls="flush-collapseTwo"
+      >
+        Form2
+      </button>
+    </h2>
+    <div
+      id="flush-collapseTwo"
+      class="accordion-collapse collapse"
+      aria-labelledby="flush-headingTwo"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <form [formGroup]="form2">
+        <div class="row">
+          <div class="col-3 mb-3">
+            <input
+              formControlName="isChecked"
+              class="form-check-input"
+              type="checkbox"
+            />
+          </div>
+          <div class="col-3 mb-3">
+            <label class="form-label">Name</label>
+            <input formControlName="name" type="text" class="form-control" />
+            <div
+              *ngIf="
+                form2.controls['name'].invalid &&
+                (form2.controls['name'].dirty || form2.controls['name'].touched)
+              "
+              class="alert"
+            >
+              <div *ngIf="form2.controls['name'].errors">
+                <small *ngIf="form2.controls['name'].errors?.['required']">
+                  This is a required field and it cannot be empty.
+                </small>
+                <small
+                  *ngIf="form2.controls['name'].errors?.['isAlphaNumeric']"
+                >
+                  This field should only contain alphabets and numbers.
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 mb-3">
+            <label class="form-label">State</label>
+            <input formControlName="state" type="text" class="form-control" />
+            <div
+            *ngIf="
+              form2.controls['state'].invalid &&
+              (form2.controls['state'].dirty || form2.controls['state'].touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="form2.controls['state'].errors">
+              <small *ngIf="form2.controls['state'].errors?.['required']">
+                This is a required field and it cannot be empty.
+              </small>
+              <small
+                *ngIf="form2.controls['state'].errors?.['isAlphaNumeric']"
+              >
+                This field should only contain alphabets and numbers.
+              </small>
+            </div>
+          </div>
+          </div>
+          <div class="col-2 mb-3">
+            <label class="form-label">DL Number</label>
+            <input
+              formControlName="dlNumber"
+              type="text"
+              class="form-control"
+            />
+            <div
+            *ngIf="
+              form2.controls['dlNumber'].invalid &&
+              (form2.controls['dlNumber'].dirty || form2.controls['dlNumber'].touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="form2.controls['dlNumber'].errors">
+              <small *ngIf="form2.controls['dlNumber'].errors?.['required']">
+                This is a required field and it cannot be empty.
+              </small>
+              <small
+                *ngIf="form2.controls['dlNumber'].errors?.['isAlphaNumeric']"
+              >
+                This field should only contain alphabets and numbers.
+              </small>
+              <small
+              *ngIf="form2.controls['dlNumber'].errors?.['valueIsOfLength7']"
+            >
+              This field should only contain 7 charecters.
+            </small>
+            </div>
+          </div>
+          </div>
+          <div class="col-2 mb-3">
+            <label class="form-label">Zipcode</label>
+            <input formControlName="zipCode" type="text" class="form-control" />
+            <div
+              *ngIf="
+                form2.controls['zipCode'].invalid &&
+                (form2.controls['zipCode'].dirty || form2.controls['zipCode'].touched)
+              "
+              class="alert"
+            >
+              <div *ngIf="form2.controls['zipCode'].errors">
+                <small *ngIf="form2.controls['zipCode'].errors?.['required']">
+                  This is a required field and it cannot be empty.
+                </small>
+                <small
+                  *ngIf="form2.controls['zipCode'].errors?.['isAlphaNumeric']"
+                >
+                  This field should only contain alphabets and numbers.
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 mb-3">
+            <label class="form-label">Relationship</label>
+            <input
+              formControlName="relationship"
+              type="text"
+              class="form-control"
+            />
+            <div
+            *ngIf="
+              form2.controls['relationship'].invalid &&
+              (form2.controls['relationship'].dirty || form2.controls['relationship'].touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="form2.controls['relationship'].errors">
+              <small *ngIf="form2.controls['relationship'].errors?.['required']">
+                This is a required field and it cannot be empty.
+              </small>
+            </div>
+          </div>
+          </div>
+          <div class="col-2 mb-3">
+            <input
+              formControlName="primaryDriver"
+              class="form-check-input"
+              type="checkbox"
+            />
+            <label class="form-label">Primary driver</label>
+          </div>
+        </div>
+
+        <button type="button" (click)="onDelete()" class="btn btn-primary">
+          Delete
+        </button>
+      </form>
+      <br />
+      {{ form2.value | json }}
+      {{ form2.status | json }}
+    </div>
+  </div>
+</div> -->
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseTwo"
+          aria-expanded="false"
+          aria-controls="flush-collapseTwo"
+        >
+          Form2
+        </button>
+      </h2>
+      <div
+        id="flush-collapseTwo"
+        class="accordion-collapse collapse"
+        aria-labelledby="flush-headingTwo"
+        data-bs-parent="#accordionFlushExample"
+      >
+      <div *ngFor="let form2 of form2List">
+        <form [formGroup]="form2">
+            <div class="row">
+              <div class="col-3 mb-3">
+                <input
+                  formControlName="isChecked"
+                  class="form-check-input"
+                  type="checkbox"
+                />
+              </div>
+              <div class="col-3 mb-3">
+                <label class="form-label">Name</label>
+                <input formControlName="name" type="text" class="form-control" />
+                <div
+                  *ngIf="
+                    form2.controls['name'].invalid &&
+                    (form2.controls['name'].dirty || form2.controls['name'].touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="form2.controls['name'].errors">
+                    <small *ngIf="form2.controls['name'].errors?.['required']">
+                      This is a required field and it cannot be empty.
+                    </small>
+                    <small
+                      *ngIf="form2.controls['name'].errors?.['isAlphaNumeric']"
+                    >
+                      This field should only contain alphabets and numbers.
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">State</label>
+                <input formControlName="state" type="text" class="form-control" />
+                <div
+                *ngIf="
+                  form2.controls['state'].invalid &&
+                  (form2.controls['state'].dirty || form2.controls['state'].touched)
+                "
+                class="alert"
+              >
+                <div *ngIf="form2.controls['state'].errors">
+                  <small *ngIf="form2.controls['state'].errors?.['required']">
+                    This is a required field and it cannot be empty.
+                  </small>
+                  <small
+                    *ngIf="form2.controls['state'].errors?.['isAlphaNumeric']"
+                  >
+                    This field should only contain alphabets and numbers.
+                  </small>
+                </div>
+              </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">DL Number</label>
+                <input
+                  formControlName="dlNumber"
+                  type="text"
+                  class="form-control"
+                />
+                <div
+                *ngIf="
+                  form2.controls['dlNumber'].invalid &&
+                  (form2.controls['dlNumber'].dirty || form2.controls['dlNumber'].touched)
+                "
+                class="alert"
+              >
+                <div *ngIf="form2.controls['dlNumber'].errors">
+                  <small *ngIf="form2.controls['dlNumber'].errors?.['required']">
+                    This is a required field and it cannot be empty.
+                  </small>
+                  <small
+                    *ngIf="form2.controls['dlNumber'].errors?.['isAlphaNumeric']"
+                  >
+                    This field should only contain alphabets and numbers.
+                  </small>
+                  <small
+                  *ngIf="form2.controls['dlNumber'].errors?.['valueIsOfLength7']"
+                >
+                  This field should only contain 7 charecters.
+                </small>
+                </div>
+              </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">Zipcode</label>
+                <input formControlName="zipCode" type="text" class="form-control" />
+                <div
+                  *ngIf="
+                    form2.controls['zipCode'].invalid &&
+                    (form2.controls['zipCode'].dirty || form2.controls['zipCode'].touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="form2.controls['zipCode'].errors">
+                    <small *ngIf="form2.controls['zipCode'].errors?.['required']">
+                      This is a required field and it cannot be empty.
+                    </small>
+                    <small
+                      *ngIf="form2.controls['zipCode'].errors?.['isAlphaNumeric']"
+                    >
+                      This field should only contain alphabets and numbers.
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">Relationship</label>
+                <input
+                  formControlName="relationship"
+                  type="text"
+                  class="form-control"
+                />
+                <div
+                *ngIf="
+                  form2.controls['relationship'].invalid &&
+                  (form2.controls['relationship'].dirty || form2.controls['relationship'].touched)
+                "
+                class="alert"
+              >
+                <div *ngIf="form2.controls['relationship'].errors">
+                  <small *ngIf="form2.controls['relationship'].errors?.['required']">
+                    This is a required field and it cannot be empty.
+                  </small>
+                </div>
+              </div>
+              </div>
+              <div class="col-2 mb-3">
+                <input
+                  formControlName="primaryDriver"
+                  class="form-check-input"
+                  type="checkbox"
+                />
+                <label class="form-label">Primary driver</label>
+              </div>
+            </div>
+          </form>
+          <br />
+          {{ form2.value | json }}
+          {{ form2.status | json }}
+      </div>
+
+      <br>
+      <button type="button" (click)="onAdd()" class="btn btn-primary mx-2">
+        Add
+      </button>
+      <button type="button" (click)="onDelete()" class="btn btn-primary">
+        Delete
+      </button>
+      </div>
+      
+    </div>
+
+  </div>
+  
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseThree"
+          aria-expanded="false"
+          aria-controls="flush-collapseThree"
+        >
+          Form3
+        </button>
+      </h2>
+      <div
+        id="flush-collapseThree"
+        class="accordion-collapse collapse"
+        aria-labelledby="flush-headingThree"
+        data-bs-parent="#accordionFlushExample"
+      >
+      <div *ngFor="let form3 of form3List">
+        <form [formGroup]="form3">
+            <div class="row">
+              <div class="col-3 mb-3">
+                <input
+                  formControlName="isChecked"
+                  class="form-check-input"
+                  type="checkbox"
+                />
+              </div>
+              <div class="col-3 mb-3">
+                <label class="form-label">Name</label>
+                <input formControlName="name" type="text" class="form-control" />
+                <div
+                  *ngIf="
+                    form3.controls['name'].invalid &&
+                    (form3.controls['name'].dirty || form3.controls['name'].touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="form3.controls['name'].errors">
+                    <small *ngIf="form3.controls['name'].errors?.['required']">
+                      This is a required field and it cannot be empty.
+                    </small>
+                    <small
+                      *ngIf="form3.controls['name'].errors?.['isAlphaNumeric']"
+                    >
+                      This field should only contain alphabets and numbers.
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">State</label>
+                <input formControlName="state" type="text" class="form-control" />
+                <div
+                *ngIf="
+                  form3.controls['state'].invalid &&
+                  (form3.controls['state'].dirty || form3.controls['state'].touched)
+                "
+                class="alert"
+              >
+                <div *ngIf="form3.controls['state'].errors">
+                  <small *ngIf="form3.controls['state'].errors?.['required']">
+                    This is a required field and it cannot be empty.
+                  </small>
+                  <small
+                    *ngIf="form3.controls['state'].errors?.['isAlphaNumeric']"
+                  >
+                    This field should only contain alphabets and numbers.
+                  </small>
+                </div>
+              </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">DL Number</label>
+                <input
+                  formControlName="dlNumber"
+                  type="text"
+                  class="form-control"
+                />
+                <div
+                *ngIf="
+                  form3.controls['dlNumber'].invalid &&
+                  (form3.controls['dlNumber'].dirty || form3.controls['dlNumber'].touched)
+                "
+                class="alert"
+              >
+                <div *ngIf="form3.controls['dlNumber'].errors">
+                  <small *ngIf="form3.controls['dlNumber'].errors?.['required']">
+                    This is a required field and it cannot be empty.
+                  </small>
+                  <small
+                    *ngIf="form3.controls['dlNumber'].errors?.['isAlphaNumeric']"
+                  >
+                    This field should only contain alphabets and numbers.
+                  </small>
+                  <small
+                  *ngIf="form3.controls['dlNumber'].errors?.['valueIsOfLength7']"
+                >
+                  This field should only contain 7 charecters.
+                </small>
+                </div>
+              </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">Zipcode</label>
+                <input formControlName="zipCode" type="text" class="form-control" />
+                <div
+                  *ngIf="
+                    form3.controls['zipCode'].invalid &&
+                    (form3.controls['zipCode'].dirty || form3.controls['zipCode'].touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="form3.controls['zipCode'].errors">
+                    <small *ngIf="form3.controls['zipCode'].errors?.['required']">
+                      This is a required field and it cannot be empty.
+                    </small>
+                    <small
+                      *ngIf="form3.controls['zipCode'].errors?.['isAlphaNumeric']"
+                    >
+                      This field should only contain alphabets and numbers.
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 mb-3">
+                <label class="form-label">Relationship</label>
+                <input
+                  formControlName="relationship"
+                  type="text"
+                  class="form-control"
+                />
+                <div
+                *ngIf="
+                  form3.controls['relationship'].invalid &&
+                  (form3.controls['relationship'].dirty || form3.controls['relationship'].touched)
+                "
+                class="alert"
+              >
+                <div *ngIf="form3.controls['relationship'].errors">
+                  <small *ngIf="form3.controls['relationship'].errors?.['required']">
+                    This is a required field and it cannot be empty.
+                  </small>
+                </div>
+              </div>
+              </div>
+              <div class="col-2 mb-3">
+                <input
+                  formControlName="primaryDriver"
+                  class="form-check-input"
+                  type="checkbox"
+                />
+                <label class="form-label">Primary driver</label>
+              </div>
+            </div>
+          </form>
+          <br />
+          {{ form3.value | json }}
+          {{ form3.status | json }}
+      </div>
+
+      <br>
+      <button type="button" (click)="onActivate()" class="btn btn-primary">
+        Activate
+      </button>
+      </div>
+      
+    </div>
+
+  </div>
+  
+
+  <br>
+  <br>
+
+<p *ngIf="error">Errors: {{errorMessages}} </p>
+<br>
+<div>
+    <button type="submit" (click)="onSubmit()" class="mx-2 btn btn-primary">
+        Submit
+      </button>
+      <button type="submit" (click)="onReset()" class="btn btn-primary">
+        Reset
+      </button>
+</div>
